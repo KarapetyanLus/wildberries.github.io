@@ -9,8 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@next/font": "^13.4.2",
+    "@react-icons/all-files": "^4.1.0",
+    "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.4.0",
+    "lodash": "^4.17.21",
     "next": "13.4.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icon": "^1.0.0",
+    "react-redux": "^8.0.5",
+    "react-responsive": "^9.0.2",
+    "sass": "^1.62.1",
+    "swiper": "^9.3.1"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.3"
   }
 }

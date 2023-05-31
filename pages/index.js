@@ -1,11 +1,46 @@
+import MainSlider from '../components/mainSlider/mainSlider'
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { fetchData2 } from '../store/slices/allGoods.api'
+import { fetchData } from '../store/slices/allGoods.api'
+import { allGoodsSelector } from '../store/slices/allGoodsSlice'
+import { basketGoodActions } from '../store/slices/basketGoodSlice'
+import product1 from "../components/images/product1.webp"
+import product2 from "../components/images/product2.webp"
+import { useRouter } from 'next/router'
+import LoadingPage from '../components/loadingPage/loadingPage'
+import Star from '@/svgs/star'
+import Done from '@/svgs/done'
 
-const inter = Inter({ subsets: ['latin'] })
+
 
 export default function Home() {
+
+  const router = useRouter("")
+  const [openText, setOpenText] = useState(false)
+  const [showAdded, setShowAdded] = useState(false)
+  const allGoodState = useSelector(allGoodsSelector)
+
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchData())
+    dispatch(fetchData2())
+  }, [])
+
+  const handleAddBasket = (e, id) => {
+    e.preventDefault()
+    dispatch(basketGoodActions.increment())
+    dispatch(basketGoodActions.selected(id))
+  }
+
+  const handleProductInfo = (e, id) => {
+    e.preventDefault()
+    router.push(`/productInfo/${id}`)
+  }
+
   return (
     <>
       <Head>
@@ -14,101 +49,140 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
+      {
+        allGoodState.loading ? <><LoadingPage /></> :
+          <>
+            <div className={styles.slider}>
+              <MainSlider />
+            </div>
+            <div className={styles.allGood}>
+              {
+                allGoodState.data2.map(({ url }, index) => {
+                  return (
+                    <div key={index} className={styles.imgWrap}>
+                      <img src={url} />
+                    </div>
+                  )
+                })
+              }
+            </div>
+            <div className={styles.goodAdded}
+              style={{ top: showAdded ? "190%" : "-40%" }}>
+              <p>
+                <span>
+                  <Done />
+                </span>Товар добавлен в корзину</p>
+            </div>
+            <div className={styles.saleHitProducts}>
+              <h2 className={styles.saleHit}>Хиты продаж</h2>
+              <div className={styles.saleProduct}>
+                {
+                  allGoodState.data.map(({ link,
+                    sale,
+                    rubPrice,
+                    desc,
+                    delivery,
+                    salePercent,
+                    id, 
+                    name
+                  }) => {
+                    return (
+                      <div key={id}
+                        className={styles.productInfo}>
+                        <div onClick={(e) => {
+                          handleProductInfo(e, id)
+                        }}>
+                          <div className={styles.productImg}>
+                            <img src={link} />
+                            <div className={styles.presentSale}>
+                              <p>{salePercent}</p>
+                            </div>
+                          </div>
+                          <div className={styles.productCard}>
+                            <p className={styles.price}>
+                              {allGoodState.currency === "RUB" ? <span>{Math.floor(+(rubPrice.replaceAll(/\D/g, '')) - +(rubPrice.replaceAll(/\D/g, '')) * parseInt(salePercent) / 100)} RUB</span>:
+                                <span>{Math.floor(+(sale.replaceAll(/\D/g, '')) - +(sale.replaceAll(/\D/g, '')) * parseInt(salePercent) / 100)} AMD</span>
+                              } 
+                            </p>
+                            <p className={styles.sale}>{allGoodState.currency === "RUB" ? <span>{rubPrice} RUB</span> : <span>{sale} AMD</span>}</p>
+                            <h2 className={styles.productName}>
+                              <span className={styles.productBrand}>{name}</span>
+                              <span className={styles.productDesc}>
+                                <span>/</span>{desc}
+                              </span>
+                            </h2>
+                            <div className={styles.stars}>
+                              <Star />
+                              <Star />
+                              <Star />
+                              <Star />
+                              <Star />
+                            </div>
+                            <p>{delivery}</p>
+                          </div>
+                        </div>
+                        <div className={styles.basket}>
+                          <a className={styles.productBasket}
+                            onClick={(e) => {
+                              handleAddBasket(e, id)
+                              setShowAdded(true)
+                              setTimeout(() => {
+                                setShowAdded(false)
+                              }, 2000)
+                            }}
+                          >В корзину</a>
+                        </div>
+                      </div>
+                    )
+                  })
+                }
+              </div>
+            </div>
+            <div className={styles.addMyProduct}>
+              <a onClick={(e) => {
+                e.preventDefault();
+                router.push("/addProduct")
+              }}>Add my product</a>
+            </div>
+            <div className={styles.thirdLineProduct}>
+              <div>
+                <img src={product1.src} />
+              </div>
+              <div>
+                <img src={product2.src} />
+              </div>
+            </div>
+            <div className={styles.aboutQualityText}>
+              <div className={styles.aboutQuality}
+                style={{ height: openText ? "auto" : '' }}
+              >
+                <h2>Широкий ассортимент и высокое качество</h2>
+                <p>Интернет-магазин Wildberries – это доступные цены, широкий, регулярно обновляемый ассортимент. В онлайн-каталоге Wildberries представлено около 300 000 ведущих брендов одежды, электроники, мебели и других товаров для всех сфер жизни. Покупателям предлагается электроника, книжная продукция, детские товары. В интернет-магазине можно приобрести продукцию для дома, продукты питания, товары для красоты, ювелирные изделия, игрушки. Для удобства пользования онлайн-каталог поделен на разделы, все товары можно сортировать по ряду критериев: цена, материал изготовления, сезонность, бренд.</p>
+                <p>
+                  <b>Выгодный шопинг</b>
+                </p>
+                <p>Интернет-магазин Wildberries регулярно проводит масштабные распродажи. В рамках таких акций предоставляются большие скидки (до 95%) на одежду, обувь, детские товары. Условия распродаж распространяются и на электронику, продукты питания, товары для дома, книги и многое другое. Чтобы быть в курсе предстоящих скидок или появления в ассортименте новых моделей от любимых брендов, достаточно подписаться на email-рассылку. Интернет-магазин одежды своевременно информирует получателей рассылки о распродажах, обновлении ассортимента. Дополнительные выгодные условия действуют для постоянных покупателей Wildberries – персональная скидка, зависящая от процента выкупа вещей. В Wildberries всегда ответственно подходят к выбору поставщиков, со многими производителями мы работаем напрямую, поэтому все категории товаров отличаются высоким качеством, разнообразием моделей и цветов, доступными ценами.</p>
+                <p>
+                  <b>Доставка и оплата без проблем</b>
+                </p>
+                <p>Онлайн-магазин Wildberries осуществляет бесплатную доставку по всей России с помощью собственной курьерской службы. Покупатель может также забрать заказ из пункта выдачи заказов. Любую одежду, обувь и другие товары можно примерить перед оплатой заказа курьеру или в пункте выдачи заказа, оборудованном удобными примерочными.</p>
+                <p>Wildberries предлагает несколько различных вариантов оплаты заказа как при оформлении, так и по факту при получении, - банковской картой или переводом, наличным расчетом или электронным платежом. Если товар не подошел, его можно вернуть с курьером как до оплаты заказа, так и после по почте или в одном из 26 000 пунктов выдачи заказа в течение 14 дней.</p>
+                <p>
+                  <b>Покупки всегда и везде</b>
+                </p>
+                <p>Купить одежду, обувь, аксессуары, детские товары и товары для дома в Wildberries можно быстро и просто. Удобный вариант - покупки через специальное мобильное приложение. Его можно скачать и установить на любой смартфон. В мобильном приложении можно заказать и другие доступные товары - электронику, продукты питания, книги.</p>
+                <p>Задать интересующий вопрос можно в любое время – наш call-центр работает 24/7.</p>
+              </div>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+              <a onClick={() => {
+                setOpenText(!openText)
+              }}>{!openText ? "Читать далее" : "Свернуть"}</a>
+            </div>
+          </>
+      }
     </>
   )
 }
+
+
+

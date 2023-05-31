@@ -36,3 +36,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+The basis of my project is the Wildberries website. I assembled the project with Next.js.
+To open the program, you need to perform the following steps:
+1. Opening it with any text editor (I used Sublime)
+2. In the Terminal field type npm i
+3. then npm run dev
+4. npx json-server --watch --d 900 --p 4200 db.json (this command is to connect to the server)

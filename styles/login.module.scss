@@ -1,0 +1,130 @@
+.login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signInPage {
+    width: 500px;
+    margin: auto;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+
+    &>h2 {
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 24px;
+    }
+}
+
+.phoneNumber {
+    padding: 7px 5px;
+    height: 52px;
+    margin-bottom: 25px;
+
+    &>input {
+        font-size: 16px;
+        color: #242424;
+        padding: 10px 14px 11px;
+        width: 100%;
+        border: 1px solid #d3d4dd;
+        border-radius: 8px;
+        transition: all .3s ease 0s;
+        background-color: #f1f1f5;
+        border-color: #f1f1f5;
+    }
+}
+
+.getCode {
+    margin-bottom: 20px;
+
+    &>button {
+        border-radius: 8px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+        background-color: #5a16a9;
+        border: none;
+        width: 100%;
+        padding: 12px 24px 14px;
+        outline: none;
+    }
+}
+
+.otherComp {
+    text-align: left;
+    margin-bottom: 24px;
+
+    &>label {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        &>input[type="checkbox"] {
+            appearance: none;
+            margin-right: 10px;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            outline: none;
+            background-color: #f1f1f5;
+            border: 1px solid #d3d4dd;
+            color: #fff;
+            position: relative;
+
+            &:before {
+                content: '';
+                transform: rotate(45deg);
+                display: block;
+                position: absolute;
+                width: 5px;
+                height: 11px;
+                border-right: 2px solid #f1f1f5;
+                border-bottom: 2px solid #f1f1f5;
+                left: 6px;
+                top: 2px;
+            }
+        }
+
+        &>input[type="checkbox"]:checked {
+            background-color: #4e1392;
+            border-color: #4e1392;
+            color: white;
+        }
+    }
+}
+.contract {
+    font-size: 15px;
+    line-height: 20px;
+    color: #868695;
+    position: relative;
+    padding-left: 25px;
+
+    &>span {
+        margin: 0 7px;
+    }
+
+    &:before {
+        content: '';
+        transform: rotate(45deg);
+        position: absolute;
+        width: 5px;
+        height: 11px;
+        border-right: 2px solid #4e1392;
+        border-bottom: 2px solid #4e1392;
+        left: 9px;
+        top: 3px;
+    }
+
+}
+@media screen and (max-width: 459px) {
+    .signInPage {
+        padding: 10px;
+    }
+    .contract {
+        font-size: 12px;
+    }
+}

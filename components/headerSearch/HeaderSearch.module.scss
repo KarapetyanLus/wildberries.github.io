@@ -1,0 +1,78 @@
+.searchedForm {
+    width: 57%;  
+    position: relative;
+
+    & > form > input {
+        font-size: 18px;
+        line-height: 24px;
+        color: rgba(255,255,255,.5);
+        width: 100%;
+        padding: 16px 120px 16px 44px;
+        border-radius: 56px;
+        background: rgba(255,255,255,.2);
+        cursor: pointer;
+        border: none;
+        outline: 0; 
+    }
+    & > form > input::placeholder {
+        color: rgba(255,255,255,.5);
+    }
+}
+.searchImg {
+    position: absolute;
+    top: 28%;
+    left: 2%;
+    font-size: 21px;
+}
+.searchIcon {
+    color: rgba(255,255,255,.5);    
+}
+.headerMedia {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.searchMenu {
+    width: 100%;
+    position: absolute;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 0 0 28px 28px;
+    box-shadow: 0 0 20px rgba(0,0,0,.2);
+    padding: 8px 4px 13px 8px;
+    z-index: 5;
+
+    & > ul {
+        width: 100%;
+
+        & > li {
+        padding: 15px 0 15px 20px;
+        font-size: 19px;
+        border-radius: 12px;
+
+        &:hover {
+            background-color: rgb(183, 167, 167);
+        }
+    }
+}
+}
+.clearHistory {
+    background-color: transparent!important;
+    cursor: pointer;
+    font-weight: 600;
+    
+    &:hover {
+        color: #000;
+    }
+}
+@media screen and (max-width: 1360px){
+    .searchedForm {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 800px){
+    .searchedForm {
+        display: none;
+    }
+}

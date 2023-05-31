@@ -1,0 +1,260 @@
+.header {
+    width: 100%;
+    background: linear-gradient(to right, #cb11ab 0, #481173 100%);
+    padding: 16px 32px 65px;
+}
+
+.headerFirstLine {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    padding: 8px 5px;
+
+    &>ul {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    &>ul>li {
+        display: flex;
+        gap: 5px;
+        color: rgba(255, 255, 255, .6);
+    }
+
+}
+
+.chouseCurrency {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.soldBtn {
+    font-size: 14px;
+    color: #fff;
+    padding: 1px 12px 3px;
+    background: #cb11ab linear-gradient(90deg, #bf5ae0 0, #a811da 100%);
+    border-radius: 40px;
+
+    &>a {
+        color: #fff;
+    }
+
+}
+
+.headerSecondLine {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.amd {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &>div {
+        width: 15px;
+        height: 5px;
+    }
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.white {
+    background-color: #fff;
+}
+
+.currencyFlag {
+    display: flex;
+    align-items: center;
+    color: #868695;
+    gap: 8px;
+}
+
+.headerLogo {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    &>h1 {
+        color: #fff;
+        font-size: 39px;
+        cursor: pointer;
+    }
+}
+
+.hedaerRight {
+    display: flex;
+    gap: 25px;
+
+    &>button {
+        cursor: pointer;
+    }
+}
+
+.signIn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    &>p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, .6);
+    }
+}
+
+.iconStyle {
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 7px;
+}
+
+.busket {
+    position: relative;
+}
+
+.count {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #f55123;
+    ;
+    color: #fff;
+    top: -11%;
+    right: 11%;
+}
+
+.bottomMenu {
+    width: 100%;
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    position: fixed;
+    bottom: 0;
+    display: none;
+    left: 0;
+    z-index: 4;
+
+
+    &>button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: rgb(206, 197, 197);
+        font-size: 20px;
+        cursor: pointer;
+
+        &:hover {
+            color: #cb11ab;
+        }
+    }
+}
+
+.mediaSearch {
+    display: none;
+    font-size: 22px;
+    color: #fff;
+}
+
+
+@media screen and (max-width: 1360px) {
+    .headerSecondLine {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .mediaSearch,
+    .headerMediaSearch,
+    .bottomMenu {
+        display: flex;
+    }
+
+    .headerLogo>h1 {
+        font-size: 22px;
+    }
+
+    .headerFirstLine>ul,
+    .hedaerRight {
+        display: none;
+    }
+
+    .mediaSearch {
+        position: relative;
+    }
+
+    .mediaSearchMenu {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        background-color: #fff;
+    }
+}
+
+.mediaSearchInput {
+    width: 100%;
+    display: flex;
+    padding: 25px 12px;
+    align-items: center;
+    position: relative;    
+
+    &>form {
+        width: 690px;
+    }
+    &>form>input {
+        font-size: 16px;
+        color: #242424;
+        width: 100%;
+        height: 40px;
+        background-color: #f1f1f5;
+        padding: 0 35px 0 16px;
+        border-radius: 24px;
+        border: none;
+        outline: none;
+    }
+
+    &>a {
+        font-size: 14px;
+        line-height: 20px;
+        flex-shrink: 0;
+        margin-left: 12px;
+        color: #cb11ab;
+        font-weight: 600;
+    }
+}
+.mediaSearched {
+    position: absolute;
+    width: 85%;
+    top: 65px;
+    height: 400px;
+    padding: 25px 14px;
+    background-color: #fff;
+    color: #242424;
+}

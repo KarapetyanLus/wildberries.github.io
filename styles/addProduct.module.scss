@@ -1,0 +1,98 @@
+.addProduct {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    &>.goodForAdd {
+        width: 50%;
+        padding: 30px 20px;
+        // box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        border-radius: 6px;
+        border: 4px solid;
+        border-image: linear-gradient(#f18137, #af24dd) 1;
+        animation: animeBorder 2.5s ease-in infinite;
+
+        &>form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        &>form>input {
+            width: 100%;
+            padding: 12px 6px;
+            font-size: 15px;
+            border-radius: 6px;
+            box-shadow: 0 0 20px rgba(195, 18, 127, 0.4);
+            border: 2px solid #cb11ab;
+            outline: none;
+        }
+    }
+
+    @keyframes animeBorder {
+        50% {
+            border-image: linear-gradient(360deg, #f18137, #af24dd) 1;
+        }
+        
+    }
+}
+.pricePart {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+
+    &>input {
+        width: 100%;
+        padding: 12px 6px;
+        font-size: 15px;
+        border-radius: 6px;
+        box-shadow: 0 0 20px rgba(195, 18, 127, 0.4);
+        border: 2px solid #cb11ab;
+        outline: none;
+    }
+}
+
+.textArea>textarea {
+    width: 100%;
+    padding: 22px 6px;
+    font-size: 15px;
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(195, 18, 127, 0.4);
+    border: 2px solid #cb11ab;
+    outline: none;
+}
+.addGoodBtn {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+
+    &>button {
+        padding: 5px 20px 7px;
+        border-radius: 8px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        background-color: #cb11ab;
+        border: 2px solid #cb11ab;
+    }
+}
+
+@media screen and (max-width: 874px) {
+    .pricePart {
+        flex-direction: column;
+    }
+    .addProduct {
+        & > .goodForAdd {
+            width: 90%;
+        }
+    }
+}
+@media screen and (max-width: 459px) {
+    .pricePart {
+        flex-direction: column;
+    }
+}

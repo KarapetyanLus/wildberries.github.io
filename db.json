@@ -1,0 +1,164 @@
+{
+  "goods": [
+    {
+      "url": "https://static-basket-01.wb.ru/vol1/crm-bnrs/bners1/desk_florans7899767.webp",
+      "link": ""
+    },
+    {
+      "url": "https://static-basket-01.wb.ru/vol1/crm-bnrs/bners1/desk_sokolov484955.webp",
+      "link": ""
+    },
+    {
+      "url": "https://static-basket-01.wb.ru/vol1/crm-bnrs/bners1/desk_oshade7789989.webp"
+    },
+    {
+      "url": "https://static-basket-01.wb.ru/vol1/crm-bnrs/bners1/desk_mixit789978.webp"
+    },
+    {
+      "url": "https://static-basket-01.wb.ru/vol1/crm-bnrs/bners1/desk_fruto_1405_2line.webp",
+      "link": ""
+    },
+    {
+      "url": "https://static-basket-01.wb.ru/vol1/crm-bnrs/bners1/desk_garnier_1405_2line.webp",
+      "link": ""
+    },
+    {
+      "url": "https://static-basket-01.wb.ru/vol1/crm-bnrs/bners1/desk_uniqute_1405_2line.webp"
+    },
+    {
+      "url": "https://static-basket-01.wb.ru/vol1/crm-bnrs/bners1/desk_png_1405_2line.webp"
+    }
+  ],
+  "product": [
+    {
+      "rubPrice": "60 725",
+      "price": "213 760",
+      "sale": "240 190",
+      "name": "Apple",
+      "desc": "iPhone 11 64GB (Global)",
+      "link": "https://basket-10.wb.ru/vol1397/part139702/139702681/images/c246x328/1.jpg",
+      "delivery": "доставка",
+      "salePercent": "11%",
+      "id": "0",
+      "reviews" : "42",
+      "package": "есть",
+      "amd": "драм",
+      "rub": "₽",
+      "purchased": "45"
+    },
+    {
+      "rubPrice": "1 800",
+      "price": "1 200",
+      "sale": "6 010",
+      "name": "SIAYZU RAIOCEU",
+      "desc": "Патчи для глаз гидрогелевые",
+      "link": "https://basket-01.wb.ru/vol133/part13306/13306652/images/c246x328/1.jpg",
+      "delivery": "доставка",
+      "salePercent": "11%",
+      "id": "1",
+      "reviews" : "52",
+      "package": "есть",
+      "amd": "драм",
+      "rub": "₽",
+      "purchased": "125"
+
+    },
+    {
+      "rubPrice": "2 300",
+      "price": "490",
+      "sale": "1 690",
+      "name": "beautiful world",
+      "desc": "Ночная маска для губ. Бальзам для губ. Laneige",
+      "link": "https://basket-05.wb.ru/vol916/part91604/91604085/images/c246x328/1.jpg",
+      "delivery": "доставка",
+      "salePercent": "71%",
+      "id": "2",
+      "reviews" : "122",
+      "package": "отсутствует",
+      "amd": "драм",
+      "rub": "₽",
+      "purchased": "145"
+    },
+    {
+      "rubPrice": "2 720",
+      "price": "4 450",
+      "sale": "8 810",
+      "name": "SIAYZU RAIOCEU",
+      "desc": "Патчи для глаз гидрогелевые",
+      "link": "https://basket-10.wb.ru/vol1394/part139432/139432155/images/c516x688/1.jpg",
+      "delivery": "доставка",
+      "salePercent": "64%",
+      "id": "5",
+      "reviews": "29",
+      "package": "есть",
+      "amd": "драм",
+      "rub": "₽",
+      "purchased": "987"
+    },
+    {
+      "rubPrice": "9 900",
+      "price": "13 750",
+      "sale": "39 300",
+      "name": "Гарри Поттер",
+      "desc": "Монополия Гарри Поттер Настольная игра для всей семьи",
+      "link": "https://basket-10.wb.ru/vol1463/part146330/146330273/images/c246x328/1.jpg",
+      "delivery": "доставка",
+      "salePercent": "65%",
+      "id": "3",
+      "reviews" : "322",
+      "package": "есть",
+      "amd": "драм",
+      "rub": "₽",
+      "purchased": "89"
+    },
+    {
+      "rubPrice": "850",
+      "price": "1 890",
+      "sale": "3 860",
+      "name": "Kallos Cosmetics",
+      "desc": "Keratin Маска для восстановления волос с кератином",
+      "link": "https://basket-03.wb.ru/vol312/part31277/31277202/images/c246x328/1.jpg",
+      "delivery": "доставка",
+      "salePercent": "73%",
+      "id": "4",
+      "reviews" : "452",
+      "package": "отсутствует",
+      "amd": "драм",
+      "rub": "₽",
+      "purchased": "89"
+    },
+    {
+      "rubPrice": "1 700",
+      "price": "2 450",
+      "sale": "6 810",
+      "name": "SIAYZU RAIOCEU",
+      "desc": "Патчи для глаз гидрогелевые",
+      "link": "https://basket-02.wb.ru/vol284/part28407/28407807/images/c246x328/1.jpg",
+      "delivery": "доставка",
+      "salePercent": "64%",
+      "id": "5",
+      "reviews": "29",
+      "package": "есть",
+      "purchased": "987",
+      "amd": "драм",
+      "rub": "₽"
+    },
+    {
+      "rubPrice": "2 300",
+      "price": "2 530",
+      "sale": "9 400",
+      "amd": "драм",
+      "rub": "₽",
+      "name": "SIAYZU RAIOCEU",
+      "desc": "Патчи для глаз гидрогелевые",
+      "link": "https://basket-02.wb.ru/vol153/part15357/15357201/images/c246x328/1.jpg",
+      "delivery": "доставка",
+      "salePercent": "73%",
+      "id": "6",
+      "reviews": "85",
+      "package": "отсутствует",
+      "purchased": "78"
+
+    }
+  ]
+}
