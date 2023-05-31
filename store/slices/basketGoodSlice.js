@@ -36,7 +36,7 @@ const basketGood = createSlice({
                     if (item.id == i) {
                         const good = {
                             ...item,
-                            count: 0
+                            count: 1
                         }
                         obj.push(good)
                     }
